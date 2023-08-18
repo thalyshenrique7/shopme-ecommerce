@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1.0,  minimum-scale=1.0">
+
+<title>Home - Shopme Admin</title>
+
+<link rel="stylesheet" type="text/css"
+	th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<script type="text/javascript" th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script type="text/javascript"
+	th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+</head>
+<body>
+	<div class="container-fluid">
+		<div>
+			<nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+				<a class="navbar-brand" th:href="@{/}"> <img
+					th:src="@{/images/ShopmeAdminSmall.png}">
+				</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#topNavbar">
+					<span class="navbar-toggle-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav">
+						<li class="nav-item"><a class="nav-link" th:href="@{/users}">Usuários</a>
+						</li>
+
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/categories}">Categorias</a></li>
+
+						<li class="nav-item"><a class="nav-link" th:href="@{/brands}">Marcas</a>
+						</li>
+
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/products}">Produtos</a></li>
+
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/customers}">Clientes</a></li>
+
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/shipping}">Rastreio</a></li>
+
+						<li class="nav-item"><a class="nav-link" th:href="@{/orders}">Pedidos</a>
+						</li>
+
+						<li class="nav-item"><a class="nav-link" th:href="@{/report}">Suporte</a>
+						</li>
+
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/articles}">Artigos</a></li>
+
+						<li class="nav-item"><a class="nav-link" th:href="@{/menu}">Menu</a>
+						</li>
+
+						<li class="nav-item"><a class="nav-link"
+							th:href="@{/settings}">Configurações</a></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+
+		<div>
+			<h2>Manage Users</h2>
+		</div>
+
+		<div>
+			<table class="table table-bordered table-striped table-hover table-responsive-xl">
+				<thead class="thead-dark">
+					<tr>
+						<th>ID</th>
+						<th>Fotos</th>
+						<th>E-mail</th>
+						<th>Nome</th>
+						<th>Sobrenome</th>
+						<th>Permissões</th>
+						<th>Ativo</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr th:each="user : ${users}">
+						<td>[[${user.id}]]</td>
+						<td>[[${user.photos}]]</td>
+						<td>[[${user.email}]]</td>
+						<td>[[${user.firstName}]]</td>
+						<td>[[${user.lastName}]]</td>
+						<td>[[${user.roles}]]</td>
+						<td>[[${user.enabled}]]</td>
+						<td>Editar &nbsp; Excluir</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="text-center">
+			<p>Shopme Control Panel - Copyrigh &copy; Shopme</p>
+		</div>
+
+	</div>
+</body>
+</html>
