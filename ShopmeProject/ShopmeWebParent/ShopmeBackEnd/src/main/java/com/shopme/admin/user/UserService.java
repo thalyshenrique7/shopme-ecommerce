@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.shopme.admin.role.RoleRepository;
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
 
@@ -37,5 +38,11 @@ public class UserService {
 	public void encodePassword(User user) {
 		String userPasswordEncode = passwordEncoder.encode(user.getPassword());
 		user.setPassword(userPasswordEncode);
+	}
+	
+	public boolean isEmailUnique(String email) {
+		User userEmail = repo.getUserByEmail(email);
+		
+		return userEmail == null;
 	}
 }
