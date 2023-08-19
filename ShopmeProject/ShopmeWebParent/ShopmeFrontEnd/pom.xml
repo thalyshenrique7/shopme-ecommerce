@@ -10,7 +10,6 @@
 	
 	<artifactId>ShopmeFrontEnd</artifactId>
 	<name>ShopmeFrontEnd</name>
-	<description>Shopping web application</description>
 	
 	<properties>
 		<java.version>17</java.version>
